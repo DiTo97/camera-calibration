@@ -1,2 +1,2 @@
-pytransform3d
-ipympl
+ipympl==0.9.3
+pytransform3d==3.0.0

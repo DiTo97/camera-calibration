@@ -1,2 +1,6 @@
+# Jupyter notebooks
 .ipynb_checkpoints/
 __pycache__/
+
+# Virtualenvs
+**venv**/
