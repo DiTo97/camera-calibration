@@ -1,2 +1,4 @@
 ipympl==0.9.3
+ipywidgets==7.7.2 # < 8.x.x, otherwise tqdm progress bar does not show up
+jupyterlab==3.5.0
 pytransform3d==3.0.0
