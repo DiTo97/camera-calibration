@@ -1,8 +1,9 @@
 # Camera Calibration using DLT
 
 A camera calibration example using direct linear transformation
-([DLT](https://en.wikipedia.org/wiki/direct_linear_transformation))
-and geometric error minimization with non-linear optimization.
+([DLT](https://en.wikipedia.org/wiki/direct_linear_transformation)).
+
+The initial DLT estimate is updated with geometric error minimization using non-linear optimization.
 
 For a written explanation of the code, see N. Krishna's original [blog post](https://towardsdatascience.com/camera-calibration-with-example-in-python-5147e945cdeb).
 
