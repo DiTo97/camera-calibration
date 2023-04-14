@@ -1,0 +1,13 @@
+black==22.3.0
+docutils==0.18.1
+flake8==4.0.1
+ipympl==0.9.3
+ipywidgets==7.7.2 # < 8.x.x, otherwise tqdm progress bar does not show up
+isort==5.10.1
+jupyterlab==3.5.0
+mypy==0.950
+pre-commit==2.20.0
+pylint==2.15.6
+pytest-cov==3.0.0
+pytest==7.1.2
+pytransform3d==3.0.0
