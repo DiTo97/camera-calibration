@@ -23,7 +23,7 @@ def intrinsic_matrix(
     Returns
     -------
     K
-        The 3-by-3 intrisic camera matrix
+        The 3-by-3 intrinsic camera matrix
     """
     K = np.identity(3)
 
@@ -51,7 +51,7 @@ def extrinsic_matrix(
     Returns
     -------
     E
-        The 3-by-4 extrisic camera matrix
+        The 3-by-4 extrinsic camera matrix
     """
     E = np.identity(4)
 
