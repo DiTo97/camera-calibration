@@ -9,6 +9,12 @@ For a written explanation of DLT and the code, see N. Krishna's original [blog p
 
 ![pinhole camera model](images/pinhole-camera-model.png)
 
+## TODOs
+
+- [ ] `geometry.py`
+- [ ] `losses.py`
+- [ ] `projection.py`
+
 ## Setup
 
 ```sh
