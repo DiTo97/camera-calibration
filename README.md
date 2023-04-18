@@ -5,7 +5,7 @@ An example of camera calibration using direct linear transformation
 
 The initial DLT estimate is updated with geometric error minimization using non-linear optimization.
 
-For a written explanation of the code, see N. Krishna's original [blog post](https://towardsdatascience.com/camera-calibration-with-example-in-python-5147e945cdeb).
+For a written explanation of DLT and the code, see N. Krishna's original [blog post](https://towardsdatascience.com/camera-calibration-with-example-in-python-5147e945cdeb).
 
 ![pinhole camera model](images/pinhole-camera-model.png)
 
