@@ -11,9 +11,10 @@ For a written explanation of DLT and the code, see N. Krishna's original [blog p
 
 ## TODOs
 
-- [ ] `geometry.py`
-- [ ] `losses.py`
-- [ ] `projection.py`
+- [ ] `calibration/geometry.py`
+- [ ] `calibration/losses.py`
+- [ ] `calibration/projection.py`
+- [ ] `camera-calibration.ipynb`
 
 ## Setup
 
