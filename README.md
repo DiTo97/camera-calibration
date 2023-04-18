@@ -1,6 +1,6 @@
 # Camera Calibration using DLT
 
-A camera calibration example using direct linear transformation
+An example of camera calibration using direct linear transformation
 ([DLT](https://en.wikipedia.org/wiki/direct_linear_transformation)).
 
 The initial DLT estimate is updated with geometric error minimization using non-linear optimization.
