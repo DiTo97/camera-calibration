@@ -1,32 +1,59 @@
-def geometric_error(m, world_points, projections):
-    """
-    compute the geometric error wrt the
-    prediction projections and the groundtruth projections
+import numpy as np
+import numpy.typing as np_typing
+
+
+Transform1d = np_typing.NDArray[np.float_]
+"""A 12-dim transform vector"""
+
+Transform2d = np_typing.NDArray[np.float_]
+"""A 3-by-4 transform matrix"""
+
+Cloud2d = np_typing.NDArray[np.float_]
+"""A heterogeneous 2-dim point cloud"""
+
+Cloud3d = np_typing.NDArray[np.float_]
+"""A heterogeneous 3-dim point cloud"""
+
+
+def geometric_error(m: Transform1d, world_points: Cloud3d, image_points: Cloud2d) -> float:
+    """The geometric error between image points and world points' projections
+
+    The world points are projected with the given transform.
 
     Parameters
-    ------------
-    m - np.ndarray, shape - (12)
-        an 12-dim vector which is to be updated
-    world_points - np.ndarray, shape - (3, n)
-                   points in the world coordinate system
-    projections - np.ndarray(2, n)
-                  projections of the points in the image
+    ----------
+    m
+        The 12-dim transform vector
+
+    world_points
+        The 3-by-n point cloud in world coordinate system
+
+    image_points
+        The 2-by-n point cloud in image coordinate system
 
     Returns
-    --------
-    error - float
-            the geometric error
+    -------
+    error
+        The geometric error
     """
-    assert world_points.shape[1] == projections.shape[1]
-    error = 0
-    n_points = world_points.shape[1]
-    for i in range(n_points):
-        X, Y, Z = world_points[:, i]
-        u, v = projections[:, i]
-        u_ = m[0] * X + m[1] * Y + m[2] * Z + m[3]
-        v_ = m[4] * X + m[5] * Y + m[6] * Z + m[7]
-        d = m[8] * X + m[9] * Y + m[10] * Z + m[11]
-        u_ = u_ / d
-        v_ = v_ / d
-        error += np.sqrt(np.square(u - u_) + np.square(v - v_))
+    num_points = world_points.shape[1]
+
+    assert num_points == image_points.shape[1]
+
+    M = m.reshape((3, 4))
+
+    world_points = np.vstack((world_points, np.ones(num_points)))  # homogeneous
+
+    projections_2d = M @ world_points
+
+    projections_2d[0, :] /= projections_2d[2, :]
+    projections_2d[1, :] /= projections_2d[2, :]
+
+    projections_2d = projections_2d[:2, :]  # heterogeneous
+
+    residual = projections_2d - points_2d
+    residual = np.sqrt(np.sum(np.square(residual), axis=0))
+
+    error = residual.sum()
+
     return error
