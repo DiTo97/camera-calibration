@@ -51,7 +51,7 @@ def geometric_error(m: Transform1d, world_points: Cloud3d, image_points: Cloud2d
 
     projections_2d = projections_2d[:2, :]  # heterogeneous
 
-    residual = projections_2d - points_2d
+    residual = projections_2d - image_points
     residual = np.sqrt(np.sum(np.square(residual), axis=0))
 
     error = residual.sum()
